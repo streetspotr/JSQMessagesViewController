@@ -20,7 +20,8 @@
 
 #import "UIColor+JSQMessages.h"
 #import "UIImage+JSQMessages.h"
-
+#import "UIColor+Streetspotr.h"
+#import "UIFont+Streetspotr.h"
 
 @implementation JSQMessagesToolbarButtonFactory
 
@@ -47,14 +48,14 @@
     
     UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [sendButton setTitle:sendTitle forState:UIControlStateNormal];
-    [sendButton setTitleColor:[UIColor jsq_messageBubbleBlueColor] forState:UIControlStateNormal];
-    [sendButton setTitleColor:[[UIColor jsq_messageBubbleBlueColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
+    [sendButton setTitleColor:[UIColor streetspotrTurquois] forState:UIControlStateNormal];
+    [sendButton setTitleColor:[[UIColor streetspotrTurquois] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
     [sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-    
+
     sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
     sendButton.contentMode = UIViewContentModeCenter;
     sendButton.backgroundColor = [UIColor clearColor];
-    sendButton.tintColor = [UIColor jsq_messageBubbleBlueColor];
+    sendButton.tintColor = [UIColor streetspotrTurquois];
     
     return sendButton;
 }
