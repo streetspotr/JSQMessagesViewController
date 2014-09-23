@@ -39,37 +39,37 @@
 - (void)setMessageBubbleLeftRightMargin:(CGFloat)messageBubbleLeftRightMargin
 {
     NSParameterAssert(messageBubbleLeftRightMargin >= 0.0f);
-    _messageBubbleLeftRightMargin = ceilf(messageBubbleLeftRightMargin);
+    _messageBubbleLeftRightMargin = CGF(ceil(messageBubbleLeftRightMargin));
 }
 
 - (void)setIncomingAvatarViewSize:(CGSize)incomingAvatarViewSize
 {
     NSParameterAssert(incomingAvatarViewSize.width >= 0.0f && incomingAvatarViewSize.height >= 0.0f);
-    _incomingAvatarViewSize = CGSizeMake(ceil(incomingAvatarViewSize.width), ceilf(incomingAvatarViewSize.height));
+    _incomingAvatarViewSize = CGSizeMake(CGF(ceil(incomingAvatarViewSize.width)), CGF(ceil(incomingAvatarViewSize.height)));
 }
 
 - (void)setOutgoingAvatarViewSize:(CGSize)outgoingAvatarViewSize
 {
     NSParameterAssert(outgoingAvatarViewSize.width >= 0.0f && outgoingAvatarViewSize.height >= 0.0f);
-    _outgoingAvatarViewSize = CGSizeMake(ceil(outgoingAvatarViewSize.width), ceilf(outgoingAvatarViewSize.height));
+    _outgoingAvatarViewSize = CGSizeMake(CGF(ceil(outgoingAvatarViewSize.width)), CGF(ceil(outgoingAvatarViewSize.height)));
 }
 
 - (void)setCellTopLabelHeight:(CGFloat)cellTopLabelHeight
 {
     NSParameterAssert(cellTopLabelHeight >= 0.0f);
-    _cellTopLabelHeight = floorf(cellTopLabelHeight);
+    _cellTopLabelHeight = CGF(floor(cellTopLabelHeight));
 }
 
 - (void)setMessageBubbleTopLabelHeight:(CGFloat)messageBubbleTopLabelHeight
 {
     NSParameterAssert(messageBubbleTopLabelHeight >= 0.0f);
-    _messageBubbleTopLabelHeight = floorf(messageBubbleTopLabelHeight);
+    _messageBubbleTopLabelHeight = CGF(floor(messageBubbleTopLabelHeight));
 }
 
 - (void)setCellBottomLabelHeight:(CGFloat)cellBottomLabelHeight
 {
     NSParameterAssert(cellBottomLabelHeight >= 0.0f);
-    _cellBottomLabelHeight = floorf(cellBottomLabelHeight);
+    _cellBottomLabelHeight = CGF(floor(cellBottomLabelHeight));
 }
 
 #pragma mark - NSObject

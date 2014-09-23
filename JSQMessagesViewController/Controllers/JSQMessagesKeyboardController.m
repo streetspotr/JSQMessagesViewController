@@ -330,7 +330,7 @@ typedef void (^JSQAnimationCompletionBlock)(BOOL finished);
             newKeyboardViewFrame.origin.y = MIN(newKeyboardViewFrame.origin.y, contextViewWindowHeight);
             newKeyboardViewFrame.origin.y = MAX(newKeyboardViewFrame.origin.y, contextViewWindowHeight - keyboardViewHeight);
             
-            if (CGRectGetMinY(newKeyboardViewFrame) == CGRectGetMinY(self.keyboardView.frame)) {
+            if (fabs(CGRectGetMinY(newKeyboardViewFrame) - CGRectGetMinY(self.keyboardView.frame)) < 0.0001) {
                 return;
             }
             

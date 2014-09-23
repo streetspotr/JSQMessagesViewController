@@ -322,7 +322,7 @@
 
 - (void)jsq_updateConstraint:(NSLayoutConstraint *)constraint withConstant:(CGFloat)constant
 {
-    if (constraint.constant == constant) {
+    if (fabs(constraint.constant - constant) < 0.0001) {
         return;
     }
     

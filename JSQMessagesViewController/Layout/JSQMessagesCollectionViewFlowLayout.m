@@ -328,7 +328,7 @@ const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
     }
     
     CGRect oldBounds = self.collectionView.bounds;
-    if (CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds)) {
+    if (fabs(CGRectGetWidth(newBounds) - CGRectGetWidth(oldBounds)) > 0.0001) {
         return YES;
     }
     
@@ -511,7 +511,7 @@ const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
     
     //  if touch is not (0,0) -- adjust item center "in flight"
     if (!CGPointEqualToPoint(CGPointZero, touchLocation)) {
-        CGFloat distanceFromTouch = fabsf(touchLocation.y - springBehavior.anchorPoint.y);
+        CGFloat distanceFromTouch = CGF(fabs(touchLocation.y - springBehavior.anchorPoint.y));
         CGFloat scrollResistance = distanceFromTouch / self.springResistanceFactor;
         
         if (self.latestDelta < 0.0f) {
