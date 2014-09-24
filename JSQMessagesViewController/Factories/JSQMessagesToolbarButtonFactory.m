@@ -48,14 +48,17 @@
     
     UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [sendButton setTitle:sendTitle forState:UIControlStateNormal];
-    [sendButton setTitleColor:[UIColor streetspotrTurquois] forState:UIControlStateNormal];
-    [sendButton setTitleColor:[[UIColor streetspotrTurquois] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
+	UIColor *textColor = [UIColor streetspotrTurquois];
+    [sendButton setTitleColor:textColor forState:UIControlStateNormal];
+	[sendButton setTitleColor:[textColor colorWithAlphaComponent:[UIColor streetspotrAlphaHighlightedButtonText]] forState:UIControlStateHighlighted];
     [sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
 
     sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
     sendButton.contentMode = UIViewContentModeCenter;
     sendButton.backgroundColor = [UIColor clearColor];
     sendButton.tintColor = [UIColor streetspotrTurquois];
+
+	[sendButton sizeToFit];
     
     return sendButton;
 }
