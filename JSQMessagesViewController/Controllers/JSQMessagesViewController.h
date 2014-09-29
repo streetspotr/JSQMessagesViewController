@@ -22,6 +22,7 @@
 #import "JSQMessagesCollectionViewFlowLayout.h"
 
 @class JSQMessagesInputToolbar;
+@class CollectionHeader;
 
 /**
  *  The `JSQMessagesViewController` class is an abstract class that represents a view controller whose content consists of
@@ -32,6 +33,8 @@
 @interface JSQMessagesViewController : UIViewController <JSQMessagesCollectionViewDataSource,
                                                          JSQMessagesCollectionViewDelegateFlowLayout,
                                                          UITextViewDelegate>
+
+@property (weak, nonatomic) IBOutlet CollectionHeader *streetspotrHeader;
 
 /**
  *  Returns the collection view object managed by this view controller. 

@@ -40,6 +40,7 @@
 #import "NSString+JSQMessages.h"
 #import "UIColor+JSQMessages.h"
 
+#import "CollectionHeader.h"
 
 static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObservingContext;
 
@@ -47,6 +48,8 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 
 @interface JSQMessagesViewController () <JSQMessagesInputToolbarDelegate,
                                          JSQMessagesKeyboardControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *streetspotrHeaderTopConstraint;
 
 @property (weak, nonatomic) IBOutlet JSQMessagesCollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet JSQMessagesInputToolbar *inputToolbar;
@@ -139,8 +142,11 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     
     self.showLoadEarlierMessagesHeader = NO;
     
-    self.topContentAdditionalInset = 0.0f;
-    
+	// Streetspotr:
+    self.topContentAdditionalInset = CGRectGetHeight(self.streetspotrHeader.frame);
+	[self.streetspotrHeader.superview removeConstraint:self.streetspotrHeaderTopConstraint];
+	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.streetspotrHeader attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:CGF(1) constant:CGF(0)]];
+
     [self jsq_updateCollectionViewInsets];
     
     self.keyboardController = [[JSQMessagesKeyboardController alloc] initWithTextView:self.inputToolbar.contentView.textView
