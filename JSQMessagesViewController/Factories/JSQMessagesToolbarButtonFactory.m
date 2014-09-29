@@ -59,6 +59,9 @@
     sendButton.tintColor = [UIColor streetspotrTurquois];
 
 	[sendButton sizeToFit];
+	CGRect frame = sendButton.frame;
+	frame.size.width = CGF(ceil(CGRectGetWidth(frame)));
+	sendButton.frame = frame;
     
     return sendButton;
 }
